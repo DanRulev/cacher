@@ -17,12 +17,12 @@ Perfect for caching database results, API responses, or any frequently accessed 
 🔄 Dynamic reconfiguration: Change capacity and policy at runtime
 🛑 Graceful shutdown: Stop background cleanup with Close()
 
-🛠️ Installation
-# bash
+# 🛠️ Installation
+
 go get github.com/danRulev/cacher
 
-🚀 Usage
-go
+# 🚀 Usage
+
 package main
 
 import (
@@ -60,10 +60,10 @@ func main() {
 
     // Close the cache (stop background cleanup)
     cache.Close()
-}
+//}
 
-⚙️ Configuration
-type Config struct {
+# ⚙️ Configuration
+// type Config struct {
     Capacity         int           // Max number of items (0 = unlimited)
     ClearingInterval time.Duration // How often to check for expired items
     EvictionPolicy   int           // LRU, MRU, LFU, or RANDOM
