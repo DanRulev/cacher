@@ -1,28 +1,30 @@
-🚀 Go Cacher
-A lightweight, thread-safe, in-memory cache for Go with support for multiple eviction policies, TTL (time-to-live), and automatic cleanup.
+# 🚀 Go Cacher
+**A lightweight, thread-safe, in-memory cache for Go**  
+Perfect for caching database results, API responses, or frequently accessed data.
 
-Perfect for caching database results, API responses, or any frequently accessed data.
+## ✨ Features
 
-✨ Features
-✅ Multiple eviction policies:
-- LRU – Least Recently Used
-- MRU – Most Recently Used
-- LFU – Least Frequently Used
-- RANDOM – Random eviction
-⏳ TTL Support: Set expiration time for each cached item
-🧹 Auto-clearing: Background goroutine removes expired items
-🔐 Thread-safe: Uses sync.RWMutex for concurrent access
-📏 Configurable capacity: Limit cache size
-📊 Stats & Diagnostics: View cache stats, occupancy, and contents
-🔄 Dynamic reconfiguration: Change capacity and policy at runtime
-🛑 Graceful shutdown: Stop background cleanup with Close()
+- 🔐 **Thread-safe** with `sync.RWMutex`
+- 🧹 **Auto-clearing** of expired items
+- 📏 **Configurable capacity** and TTL
+- 🔄 **Multiple eviction policies**:
+  - `LRU` – Least Recently Used
+  - `MRU` – Most Recently Used
+  - `LFU` – Least Frequently Used
+  - `RANDOM` – Random eviction
+- ⏳ **TTL Support** – Set expiration time per item
+- 📊 **Rich diagnostics** with `Stats()`
+- 🛑 **Graceful shutdown** via `Close()`
+
+---
 
 # 🛠️ Installation
-
+```
 go get github.com/danRulev/cacher
+```
 
 # 🚀 Usage
-
+```
 package main
 
 import (
@@ -60,14 +62,17 @@ func main() {
 
     // Close the cache (stop background cleanup)
     cache.Close()
-//}
+}
+```
 
 # ⚙️ Configuration
+```
 // type Config struct {
     Capacity         int           // Max number of items (0 = unlimited)
     ClearingInterval time.Duration // How often to check for expired items
     EvictionPolicy   int           // LRU, MRU, LFU, or RANDOM
 }
+```
 
 
 
